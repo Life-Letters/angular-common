@@ -10,12 +10,10 @@
  */
 angular.module('life.common')
   .directive('ofLegalAge', function (moment) {
-
     return {
       restrict: 'A',
       require: 'ngModel',
       link: function postLink(scope, element, attrs, ctrl) {
-        console.log('hey');
         ctrl.$validators.ofLegalAge = function(modelValue, viewValue) {
 	        var b = moment(viewValue, attrs.ofLegalAge || 'DD/MM/YYYY');
 					return moment().diff(b, 'years') > 18;

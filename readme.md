@@ -52,36 +52,6 @@ following:
       }
     },
 
-To make the templates available you can manually copy the `views` folder to 
-your project directory. Alternatively, if you're using grunt you can follow these steps:
-
-Add the following to the `copy` task:
-
-    copy: {
-      dist: {
-        files: [{
-          ...
-        },{
-          expand: true,
-          cwd: './bower_components/web-common/views',
-          src: '{,*/}*.html',
-          dest: '<%= yeoman.dist %>/views'
-        }
-
-Add the following to the `livereload` server:
-
-    livereload: {
-      options: {
-        open: true,
-        middleware: function (connect) {
-          return [
-            ...
-            connect.static('./bower_components/web-common')
-          ];
-        }
-      }
-    },
-
 
 ## Development
 
