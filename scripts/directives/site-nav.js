@@ -4,17 +4,13 @@
  * Injects the Life Letters navbar, as taken from the main website.
  */
 angular.module('life.common')
-  .directive('siteNav', function ($sce, $rootScope) {
+  .directive('siteNav', function ($sce, $rootScope, config) {
     return {
       template: '<span ng-include="path"></span>',
       restrict: 'E',
       scope: true,
       link: function(scope, element, attrs) {
-        if ( !window.urls || !window.urls.website ) {
-          $log.error('missing window.urls');
-          return;
-        }
-        scope.path = $sce.trustAsResourceUrl(window.urls.website+'site-nav');
+        scope.path = $sce.trustAsResourceUrl( config.urls.website+'site-nav' );
       }
     };
   })

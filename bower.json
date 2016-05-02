@@ -8,6 +8,7 @@
   "main": [
     "scss/include.scss",
     "scripts/module.js",
+    "scripts/services/config.js",
     "scripts/directives/site-nav.js",
     "scripts/directives/footer.js",
     "scripts/directives/mailing-list-form.js",
