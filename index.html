@@ -88,8 +88,8 @@
             </div>
           </form>
           <p>
-            <label>Raw:</label> {{ dob }},
-            <label>Filtered:</label> {{ dob | date }}, 
+            <label>Raw:</label> {{ dob }}<br>
+            <label>Filtered:</label> {{ dob | date }}<br>
             <label>Age:</label> {{ dob | age }}
           </p>
         </div><!-- .col-sm-6 -->
@@ -120,65 +120,13 @@
         </div><!-- .col-sm-6 -->
       </div><!-- .row -->
 
-      <hr>
-
     </div><!-- .container-fluid -->
-
-    <section class="padding-md bg-gray text-light">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-8">
-            <h2>Lorem ipsum dolor.</h2>
-            <h3>Consectetur adipisicing elit. Doloribus, vel.</h3>
-            <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing</a> elit. Ut consectetur ducimus soluta eveniet enim et tempora nemo harum deserunt. Quaerat error consequatur cumque ab nulla. Sed repellat iste hic dolore.</p>
-          </div><!-- .col-sm-4 -->
-          <div class="col-sm-4">
-            <h3>Checklist.</h3>
-            <ul>
-              <li>Lorem ipsum dolor sit amet.</li>
-              <li>Nostrum enim repellat ipsam alias.</li>
-              <li>Laboriosam illum repellendus vero rerum.</li>
-              <li>Cum explicabo dolor vitae harum.</li>
-            </ul>
-            <a class="btn btn-themed btn-block btn-outline">Click here</a>
-          </div><!-- .col-sm-8 -->
-        </div><!-- .row -->
-      </div><!-- .container-fluid -->
-    </section>
-
-
-    <div class="bs-component theme-{{ theme }}" ng-repeat="theme in themes" inspect-html>
-    	<section class="bg-themed padding-sm">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-sm-4">
-              <h2>Lorem ipsum dolor.</h2>
-              <h3>Consectetur adipisicing elit. Doloribus, vel.</h3>
-            </div><!-- .col-sm-4 -->
-            <div class="col-sm-4">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores saepe quia repellendus accusantium eius eum recusandae est. Distinctio, earum! Accusantium ipsam, dolorum pariatur neque animi ipsa dicta nihil tenetur consequatur!
-              </p>
-              <a class="btn btn-themed pull-right">Click here</a>
-            </div><!-- .col-sm-8 -->
-          </div><!-- .row -->
-        </div><!-- .container-fluid -->
-      </section>
-    </div>
-
-    <!-- <div ng-include="'theme.html'"></div> -->
 
     <footer></footer>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
-    <script src="bower_components/js-beautify/js/lib/beautify-html.js"></script>
-    <script src="bower_components/angular-inspect-html/angular-inspect-html.js"></script>
-    <script src="bower_components/angular-users/scripts/module.js"></script>
-    <script src="bower_components/angular-users/scripts/services/users.js"></script>
-    <script src="bower_components/angular-users/scripts/directives/user-switches.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
 
@@ -196,156 +144,17 @@
 
     <script>
       window.urls = {
-        ehr: 'http://localhost:9000/',
         website: 'http://dev.lifeletters.com/',
-        userService: 'http://localhost:3000/api/v1/',
         mailingListService: 'https://lluserprod.herokuapp.com/',
       };
       angular.module('DemoApp', [
-          'life.inspectHtml', 
           'life.common',
-          'life.users',
         ])
-        .config(function(usersProvider) {
-          usersProvider.setUrl( window.urls.userService );
-        })
         .controller('MainCtrl', function($scope) {
           $scope.dob = null;
           $scope.$watch('dob', function() {
             console.log($scope.dob);
           });
-
-          $scope.themes = [
-              // 'purple',
-              // 'yellow',
-              // 'cyan',
-              // 'gray',
-              // 'bluegray',
-              // 'tangerine',
-              // 'green',
-              // 'maroon',
-              'tinyLetters',
-              'tinyLetters-alt',
-              'tinyLetters-alt2',
-              'scriptLetters',
-              'scriptLetters-alt',
-              'scriptLetters-alt2',
-            ];
-
-          $scope.icons = [
-              'icon-hex-print-outline',
-              'icon-hex-question-outline',
-              'icon-hex-question-solid',
-              'icon-dots',
-              'icon-hex-00-outline',
-              'icon-hex-00-solid',
-              'icon-hex-01-outline',
-              'icon-hex-01-solid',
-              'icon-hex-02-outline',
-              'icon-hex-02-solid',
-              'icon-hex-03-outline',
-              'icon-hex-03-solid',
-              'icon-hex-04-outline',
-              'icon-hex-04-solid',
-              'icon-hex-05-outline',
-              'icon-hex-05-solid',
-              'icon-hex-06-outline',
-              'icon-hex-06-solid',
-              'icon-hex-07-outline',
-              'icon-hex-07-solid',
-              'icon-hex-08-outline',
-              'icon-hex-08-solid',
-              'icon-hex-09-outline',
-              'icon-hex-09-solid',
-              'icon-hex-123-outline',
-              'icon-hex-123-solid',
-              'icon-hex-about-outline',
-              'icon-hex-about-solid',
-              'icon-hex-clinician-outline',
-              'icon-hex-clinician-solid',
-              'icon-hex-clock-outline',
-              'icon-hex-clock-solid',
-              'icon-hex-close-outline',
-              'icon-hex-close-solid',
-              'icon-hex-computer-outline',
-              'icon-hex-computer-solid',
-              'icon-hex-conversation-outline',
-              'icon-hex-conversation-solid',
-              'icon-hex-dataKey-outline',
-              'icon-hex-dataKey-solid',
-              'icon-hex-dataLock-outline',
-              'icon-hex-dataLock-solid',
-              'icon-hex-faq-outline',
-              'icon-hex-faq-solid',
-              'icon-hex-home-outline',
-              'icon-hex-home-solid',
-              'icon-hex-learn-outline',
-              'icon-hex-learn-solid',
-              'icon-hex-menu-outline',
-              'icon-hex-menu-solid',
-              'icon-hex-money-outline',
-              'icon-hex-money-solid',
-              'icon-hex-mute-outline',
-              'icon-hex-mute-solid',
-              'icon-hex-news-outline',
-              'icon-hex-news-solid',
-              'icon-hex-note-outline',
-              'icon-hex-note-solid',
-              'icon-hex-paid-outline',
-              'icon-hex-paid-solid',
-              'icon-hex-phone-outline',
-              'icon-hex-phone-solid',
-              'icon-hex-received-outline',
-              'icon-hex-received-solid',
-              'icon-hex-reload-outline',
-              'icon-hex-reload-solid',
-              'icon-hex-report-outline',
-              'icon-hex-report-solid',
-              'icon-hex-reportReceived-outline',
-              'icon-hex-reportReceived-solid',
-              'icon-hex-sampleReceived-outline',
-              'icon-hex-sampleReceived-solid',
-              'icon-hex-search-outline',
-              'icon-hex-search-solid',
-              'icon-hex-settings-outline',
-              'icon-hex-settings-solid',
-              'icon-hex-skip-outline',
-              'icon-hex-skip-solid',
-              'icon-hex-test-outline',
-              'icon-hex-test-solid',
-              'icon-hex-testReceived-outline',
-              'icon-hex-testReceived-solid',
-              'icon-hex-testTube-outline',
-              'icon-hex-testTube-solid',
-              'icon-hex-trophy-outline',
-              'icon-hex-trophy-solid',
-              'icon-hex-truck-outline',
-              'icon-hex-truck-solid',
-              'icon-hex-truck2-outline',
-              'icon-hex-truck2-solid',
-              'icon-hex-user-outline',
-              'icon-hex-user-solid',
-              'icon-hex-volume-outline',
-              'icon-hex-volume-solid',
-              'icon-hex-waiting-outline',
-              'icon-hex-waiting-solid',
-              'icon-LifeLetters-logo',
-              'icon-home',
-              'icon-stopwatch',
-              'icon-bubbles',
-              'icon-lock',
-              'icon-warning',
-              'icon-close',
-              'icon-checkmark',
-              'icon-googleplus-solid',
-              'icon-facebook',
-              'icon-facebook-solid',
-              'icon-twitter',
-              'icon-twitter-solid',
-              'icon-youtube-solid',
-              'icon-github-solid',
-              'icon-linkedin-solid',
-            ];
         });
     </script>
   </body>

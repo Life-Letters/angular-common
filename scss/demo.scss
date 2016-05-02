@@ -1,4 +1,3 @@
-$theme-font-path: "/fonts/";
+$theme-font-path: "/bower_components/theme/fonts/";
 
-@import "include";
-@import "angular-inspect-html/scss/angular-inspect-html.scss";
+@import "theme/scss/include";

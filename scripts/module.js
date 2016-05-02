@@ -1,4 +1,5 @@
 angular.module('life.common', [
-	'life.users',
-	'angularMoment'
+	'ngCookies',
+	'angularMoment',
+	'ngLodash',
 ]);

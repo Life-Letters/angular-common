@@ -1,6 +1,6 @@
 {
-  "name": "web-common",
-  "homepage": "https://github.com/Life-Letters/theme",
+  "name": "angular-common",
+  "homepage": "https://github.com/Life-Letters/angular-common",
   "authors": [
     "Torben Sko <torben.sko@lifeletters.com.au>"
   ],
@@ -28,20 +28,14 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "angular-inspect-html": "Life-Letters/angular-inspect-html#~1.1.1"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "bootswatch": "~3.3.6",
-    "bootstrap-sass": "bootstrap-sass-official#~3.3.6",
-    "font-awesome": "~4.5.0",
-    "angular-bootstrap": "~1.1.2",
-    "angular-users": "Life-Letters/angular-users#~0.6.1",
-    "angular-moment": "^0.10.3"
+    "ng-lodash": "^0.4.0",
+    "angular-cookies": "^1.5.5",
+    "angular-moment": "^0.10.3",
+    "theme": "Life-Letters/life-theme#^0.0.4"
   },
   "resolutions": {
-    "ng-lodash": "~0.4.0",
-    "angular-bootstrap": "~1.1.2",
-    "moment": ">=2.8.0 <2.11.0"
+    "angular": "1.5.5"
   }
 }

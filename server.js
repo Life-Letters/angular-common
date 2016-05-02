@@ -10,5 +10,5 @@ app.listen(port);
 console.log('listening on '+port);
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname+'/demo.html');
+  res.sendFile(__dirname+'/index.html');
 });
