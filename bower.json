@@ -7,7 +7,6 @@
   "description": "Common Life Letters web logic, layout, styling and assets",
   "main": [
     "scripts/module.js",
-    "scripts/directives/mailing-list-form.js",
     "scripts/directives/toggleable.js",
     "scripts/directives/to-iso-date-string.js",
     "scripts/directives/edit-cookie.js",

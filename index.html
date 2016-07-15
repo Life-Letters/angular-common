@@ -4,9 +4,8 @@
     <title></title>
     <link href="styles/demo.css" rel="stylesheet">
   </head>
-  
   <body ng-controller="MainCtrl" style="padding:50px 0;">
-    
+  
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
@@ -114,17 +113,12 @@
 
     <script src="scripts/module.js"></script>
     <script src="scripts/filters/age.js"></script>
-    <script src="scripts/directives/mailing-list-form.js"></script>
     <script src="scripts/directives/toggleable.js"></script>
     <script src="scripts/directives/edit-cookie.js"></script>
     <script src="scripts/directives/to-iso-date-string.js"></script>
     <script src="scripts/directives/of-legal-age.js"></script>
 
     <script>
-      window.urls = {
-        website: 'http://dev.lifeletters.com/',
-        mailingListService: 'https://lluserprod.herokuapp.com/',
-      };
       angular.module('DemoApp', [
           'life.common',
         ])
