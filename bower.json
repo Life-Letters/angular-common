@@ -7,12 +7,9 @@
   "description": "Common Life Letters web logic, layout, styling and assets",
   "main": [
     "scripts/module.js",
-    "scripts/services/config.js",
-    "scripts/directives/site-nav.js",
-    "scripts/directives/footer.js",
     "scripts/directives/mailing-list-form.js",
     "scripts/directives/toggleable.js",
-    "scripts/directives/store-as-date.js",
+    "scripts/directives/to-iso-date-string.js",
     "scripts/directives/edit-cookie.js",
     "scripts/directives/of-legal-age.js",
     "scripts/filters/age.js"
@@ -33,8 +30,5 @@
     "ng-lodash": "^0.4.0",
     "angular-cookies": "^1.5.5",
     "angular-moment": "^0.10.3"
-  },
-  "resolutions": {
-    "angular": "1.5.5"
   }
 }

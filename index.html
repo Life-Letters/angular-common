@@ -5,11 +5,8 @@
     <link href="styles/demo.css" rel="stylesheet">
   </head>
   
-  <body ng-controller="MainCtrl">
+  <body ng-controller="MainCtrl" style="padding:50px 0;">
     
-    <site-nav></site-nav>
-    <div class="nav-offset"></div><!-- .nav-offset -->
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
@@ -107,10 +104,7 @@
           </form>
         </div><!-- .col-sm-6 -->
       </div><!-- .row -->
-
     </div><!-- .container-fluid -->
-
-    <footer></footer>
 
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -119,15 +113,12 @@
     <script src="bower_components/angular-moment/angular-moment.js"></script>
 
     <script src="scripts/module.js"></script>
-    <script src="scripts/services/config.js"></script>
-    <script src="scripts/directives/site-nav.js"></script>
-    <script src="scripts/directives/footer.js"></script>
+    <script src="scripts/filters/age.js"></script>
     <script src="scripts/directives/mailing-list-form.js"></script>
     <script src="scripts/directives/toggleable.js"></script>
     <script src="scripts/directives/edit-cookie.js"></script>
     <script src="scripts/directives/to-iso-date-string.js"></script>
     <script src="scripts/directives/of-legal-age.js"></script>
-    <script src="scripts/filters/age.js"></script>
 
     <script>
       window.urls = {
@@ -138,10 +129,6 @@
           'life.common',
         ])
         .controller('MainCtrl', function($scope) {
-          $scope.dob = null;
-          $scope.$watch('dob', function() {
-            console.log($scope.dob);
-          });
         });
     </script>
   </body>
