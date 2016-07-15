@@ -70,28 +70,41 @@
 
       <div class="row">
         <div class="col-sm-6">
-          <h3>DOB</h3>
+          <h3>Dates</h3>
           <p>
             Directives for legal age check and string to date conversion. Also provides
             an <code>age</code> filter.
           </p>
         </div><!-- .col-sm-6 -->
         <div class="col-sm-6">
-          <form name="dobForm">
-            <div class="form-group" ng-class="{'has-error': dobForm.dob.$invalid}">
-              <label class="control-label">DOB</label>
-              <input type="text" name="dob" class="form-control" placeholder="dd/mm/yyyy"
-                  ng-model="dob"
-                  of-legal-age store-as-date />
-              <p class="help-block" ng-if="dobForm.dob.$error.ofLegalAge">
+          <form name="dateForm">
+            <div class="form-group" ng-class="{'has-error': dateForm.date1.$invalid}">
+              <label class="control-label">Australian</label>
+              <input type="text" name="date1" class="form-control" placeholder="dd/mm/yyyy"
+                  ng-model="date1"
+                  of-legal-age to-iso-date-string />
+              <p class="help-block" ng-if="dateForm.date1.$error.ofLegalAge">
                 You are not old enough</p>
             </div>
+            <p>
+              <label>Raw:</label> {{ date1 }}<br>
+              <label>Filtered:</label> {{ date1 | date }}<br>
+              <label>Age:</label> {{ date1 | age }}
+            </p>
+            <div class="form-group" ng-class="{'has-error': dateForm.date2.$invalid}">
+              <label class="control-label">American</label>
+              <input type="text" name="date2" class="form-control" placeholder="mm/dd/yyyy"
+                  ng-model="date2"
+                  to-iso-date-string="MM/DD/YYYY" />
+              <p class="help-block" ng-if="dateForm.date2.$error.ofLegalAge">
+                You are not old enough</p>
+            </div>
+            <p>
+              <label>Raw:</label> {{ date2 }}<br>
+              <label>Filtered:</label> {{ date2 | date }}<br>
+              <label>Age:</label> {{ date2 | age }}
+            </p>
           </form>
-          <p>
-            <label>Raw:</label> {{ dob }}<br>
-            <label>Filtered:</label> {{ dob | date }}<br>
-            <label>Age:</label> {{ dob | age }}
-          </p>
         </div><!-- .col-sm-6 -->
       </div><!-- .row -->
 
@@ -112,7 +125,7 @@
     <script src="scripts/directives/mailing-list-form.js"></script>
     <script src="scripts/directives/toggleable.js"></script>
     <script src="scripts/directives/edit-cookie.js"></script>
-    <script src="scripts/directives/store-as-date.js"></script>
+    <script src="scripts/directives/to-iso-date-string.js"></script>
     <script src="scripts/directives/of-legal-age.js"></script>
     <script src="scripts/filters/age.js"></script>
 

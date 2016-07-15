@@ -7,30 +7,30 @@
  *
  * Usage
  *
- * date-converter="DD/MM/YYYY"
+ * to-iso-date-string="DD/MM/YYYY"
  * 
  * Taken from: http://stackoverflow.com/questions/14474555/how-to-format-a-date-using-ng-model
  * 
  * @ngdoc directive
- * @name life.common.directive:storeAsDate
+ * @name life.common.directive:toIsoDateString
  * @description
- * # storeAsDate
+ * # toIsoDateString
  */
 angular.module('life.common')
-  .directive('storeAsDate', function (moment) {
-	  return {
+  .directive('toIsoDateString', function (moment) {
+    return {
 	    require:'^ngModel',
 	    restrict:'A',
 	    priority: 101, // must be greater than ui-mask (100)
 	    link: function (scope, elm, attrs, ctrl) {
-	      var dateFormat = attrs.storeAsDate || 'DD/MM/YYYY';
+	      var dateFormat = attrs.toIsoDateString || 'DD/MM/YYYY';
 
-	      attrs.$observe('storeAsDate', function (newValue) {
+	      attrs.$observe('toIsoDateString', function (newValue) {
 	        if (dateFormat === newValue || !ctrl.$modelValue) {
 	        	return;
 	        }
 	        dateFormat = newValue;
-	        ctrl.$modelValue = new Date(ctrl.$setViewValue);
+	        ctrl.$modelValue = (new Date(ctrl.$setViewValue)).format('YYYY-MM-DD');
 	      });
 
 	      ctrl.$formatters.push(function (modelValue) {
@@ -42,8 +42,9 @@ angular.module('life.common')
 	      });
 
 	      ctrl.$parsers.push(function (viewValue) {
-	        var date = moment(viewValue, dateFormat);
-	        return (date && date.isValid()) ? date.toDate() : '';
+	        var date = moment(viewValue, dateFormat),
+	        		dateStr = (date && date.isValid()) ? date.format('YYYY-MM-DD') : '';
+	        return dateStr;
 	      });
 
 	      ctrl.$validators.isValidDate = function(modelValue, viewValue) {
